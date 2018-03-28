@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: 192.168.0.25
+  data:
+    mongodb:
+      uri: mongodb://192.168.0.25:27017/test
