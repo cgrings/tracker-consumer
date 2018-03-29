@@ -8,4 +8,7 @@ public interface PageViewService {
     PageView convertAndSave(final PageViewInput pageViewInput);
 
     PageView save(final PageView pageView);
+
+    void updateUserBySession(final String user, final String session);
+
 }

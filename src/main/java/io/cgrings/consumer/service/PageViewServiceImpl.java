@@ -1,6 +1,7 @@
 package io.cgrings.consumer.service;
 
 import java.time.ZoneId;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +18,8 @@ public class PageViewServiceImpl implements PageViewService {
 
 	private Logger logger = LoggerFactory.getLogger(PageViewService.class);
 
-	@Autowired
-	private PageViewRepository pageViewRepository;
+    @Autowired
+    private PageViewRepository pageViewRepository;
 
     @Override
     @Transactional
@@ -32,9 +33,20 @@ public class PageViewServiceImpl implements PageViewService {
     public PageView convertAndSave(final PageViewInput pageViewInput) {
         final PageView pageView = new PageView();
         pageView.setUrl(pageViewInput.getUrl());
-        pageView.setTracker(pageViewInput.getId());
+        pageView.setSession(pageViewInput.getSid());
         pageView.setDateTime(pageViewInput.getDtz().withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime());
+        pageView.setUser(pageViewInput.getUid());
         return this.save(pageView);
+    }
+
+    @Override
+    // TODO: move to a daily brackgroud task
+    public void updateUserBySession(final String user, final String session) {
+        final Stream<PageView> sameSessionPageViews = this.pageViewRepository.findBySessionAndUserExists(session, Boolean.FALSE);
+        sameSessionPageViews.forEach(sameSession -> {
+            sameSession.setUser(user);
+            this.save(sameSession);
+        });
     }
 
 }

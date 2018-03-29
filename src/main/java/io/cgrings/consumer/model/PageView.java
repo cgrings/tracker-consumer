@@ -13,8 +13,9 @@ public class PageView {
     @Id
     private String id;
     private String url;
-    private String tracker;
+    private String session;
     private LocalDateTime dateTime;
+    private String user;
     @Version
     @Field("__v")
     private Integer version;
@@ -35,12 +36,12 @@ public class PageView {
         this.url = url;
     }
 
-    public String getTracker() {
-        return tracker;
+    public String getSession() {
+        return session;
     }
 
-    public void setTracker(String tracker) {
-        this.tracker = tracker;
+    public void setSession(String session) {
+        this.session = session;
     }
 
     public LocalDateTime getDateTime() {
@@ -49,6 +50,14 @@ public class PageView {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public Integer getVersion() {

@@ -23,11 +23,11 @@ public class PageViewServiceTest {
 
     @Test
     public void saveTest() {
-        final PageView pageHit = new PageView();
-        pageHit.setUrl("bar.html");
-        pageHit.setTracker("foo");
-        pageHit.setDateTime(LocalDateTime.now());
-        final PageView pageHitResult = this.pageViewService.save(pageHit);
+        final PageView pageView = new PageView();
+        pageView.setUrl("bar.html");
+        pageView.setSession("xpto");
+        pageView.setDateTime(LocalDateTime.now());
+        final PageView pageHitResult = this.pageViewService.save(pageView);
         Assert.assertNotNull(pageHitResult.getId());
     }
 }

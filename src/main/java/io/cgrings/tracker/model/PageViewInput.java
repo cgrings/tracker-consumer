@@ -4,12 +4,13 @@ import java.time.ZonedDateTime;
 
 public class PageViewInput {
 
-    private String id;
+    private String sid;
     private String url;
     private ZonedDateTime dtz;
+    private String uid;
 
-    public PageViewInput(final String id, final String url, final ZonedDateTime dtz) {
-        this.id = id;
+    public PageViewInput(final String sid, final String url, final ZonedDateTime dtz) {
+        this.sid = sid;
         this.url = url;
         this.dtz = dtz;
     }
@@ -17,12 +18,12 @@ public class PageViewInput {
     public PageViewInput() {
     }
 
-    public String getId() {
-        return id;
+    public String getSid() {
+        return sid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 
     public String getUrl() {
@@ -39,6 +40,14 @@ public class PageViewInput {
 
     public void setDtz(ZonedDateTime dtz) {
         this.dtz = dtz;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
 }

@@ -2,9 +2,26 @@ package io.cgrings.tracker.model;
 
 public class ContactInput {
 
+    private String sid;
+    private String uid;
     private String name;
     private String email;
-    private String tracker;
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(final String sid) {
+        this.sid = sid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getName() {
         return name;
@@ -20,14 +37,6 @@ public class ContactInput {
 
     public void setEmail(final String email) {
         this.email = email;
-    }
-
-    public String getTracker() {
-        return tracker;
-    }
-
-    public void setTracker(final String tracker) {
-        this.tracker = tracker;
     }
 
 }

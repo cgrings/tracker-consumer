@@ -12,7 +12,6 @@ public class Contact {
     private String id;
     private String name;
     private String email;
-    private String tracker;
     @Version
     @Field("__v")
     private Integer version;
@@ -39,14 +38,6 @@ public class Contact {
 
     public void setEmail(final String email) {
         this.email = email;
-    }
-
-    public String getTracker() {
-        return tracker;
-    }
-
-    public void setTracker(String tracker) {
-        this.tracker = tracker;
     }
 
     public Integer getVersion() {
